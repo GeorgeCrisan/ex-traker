@@ -1,0 +1,26 @@
+{
+  "name": "ex-traker",
+  "version": "1.0.0",
+  "description": "george crisan project",
+  "main": "server.js",
+  "scripts": {
+    "client": "cd client && yarn start",
+    "server": "nodemon server.js",
+    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GeorgeCrisan/ex-traker.git"
+  },
+  "author": "George Crisan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GeorgeCrisan/ex-traker/issues"
+  },
+  "homepage": "https://github.com/GeorgeCrisan/ex-traker#readme",
+  "dependencies": {
+    "concurrently": "^3.6.0",
+    "express": "^4.16.3",
+    "nodemon": "^1.18.3"
+  }
+}
