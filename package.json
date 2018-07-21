@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/GeorgeCrisan/ex-traker.git"
+    "url": "git+git@github.com:GeorgeCrisan/ex-traker.git"
   },
   "author": "George Crisan",
   "license": "ISC",
