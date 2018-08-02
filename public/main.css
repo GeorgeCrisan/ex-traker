@@ -1,0 +1,19 @@
+.container {
+  margin: auto;
+  width: 1200px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#e66465), to(#9198e5));
+  background: -webkit-linear-gradient(#e66465, #9198e5);
+  background: -o-linear-gradient(#e66465, #9198e5);
+  background: linear-gradient(#e66465, #9198e5);
+  text-align: center;
+  padding: 50px 0;
+  text-color: white; }
+
+h1, h2, p {
+  color: white; }
+
+h1 {
+  color: black; }
+
+h3 {
+  color: lime; }

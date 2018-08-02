@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    title ET for Freecodecamp
+  body
+    br
+    #datago 
+      p Your username is
+      strong #{username}
+      p  and your id is 
+      strong #{_id} 
+      p  In order to use the application you need to save or copy to clipboard your id.
+    br
+    button(onclick='goBack()') Go Back
+    script.
+      function goBack() {
+      window.history.back();
+      }
+     
