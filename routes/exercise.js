@@ -12,10 +12,10 @@ router.post('/new-user', (req, res, next) => {
         return User.create({ username })
     })
         .then(user => res.status(200).render(path.join(__dirname , '../views/info.pug'),{username: user.username,
-            _id: user._id}))
+            _id: user._id, newuser: true}))
         .catch(err => {
             console.log(err);
-            res.status(500).send(err.message);
+            res.status(500).render(path.join(__dirname , '../views/error1.pug'),{error1: true, message: err.message});
         })
 })
 
@@ -27,7 +27,8 @@ router.post('/add', (req, res, next) => {
         return Exercise.create({
             description, duration, date, userId
         })
-            .then(ex => res.status(200).send({
+            .then(ex => res.status(200).render(path.join(__dirname , '../views/info.pug'),{
+                added: true,
                 username: user.username,
                 description, duration,
                 _id: user._id,
@@ -36,7 +37,7 @@ router.post('/add', (req, res, next) => {
     })
         .catch(err => {
             console.log(err);
-            res.status(500).send(err.message);
+            res.status(500).render(path.join(__dirname , '../views/error1.pug'),{error1: true, message: err.message});
         })
 })
 
@@ -49,11 +50,13 @@ router.get('/log', (req, res, next) => {
         Exercise.find({ userId })
             .where('date').gte(from).lte(to)
             .limit(+limit).exec()
-            .then(log => res.status(200).send({
+            .then(log => res.status(200).render(path.join(__dirname , '../views/info.pug'),{
                 _id: userId,
+                loguser: true,
                 username: user.username,
                 count: log.length,
-                log: log.map(o => ({
+                log: log.map((o,i) => ({
+                    number: i + 1,
                     description: o.description,
                     duration: o.duration,
                     date: moment(o).format('ddd MMMM DD YYYY')
@@ -62,7 +65,7 @@ router.get('/log', (req, res, next) => {
     })
         .catch(err => {
             console.log(err);
-            res.status(500).send(err.message);
+            res.status(500).render(path.join(__dirname , '../views/error1.pug'),{error1: true, message: err.message});
         })
 })
 console.log('loaded');

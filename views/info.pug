@@ -4,16 +4,41 @@ html
     title ET for Freecodecamp
   body
     br
-    #datago 
-      p Your username is
-      strong #{username}
-      p  and your id is 
-      strong #{_id} 
-      p  In order to use the application you need to save or copy to clipboard your id.
-    br
+    if newuser
+      #datago 
+        p Your username is
+        strong #{username}
+        p  and your id is 
+        strong #{_id} 
+        p  In order to use the application you need to save or copy to clipboard your id.
+      br
+    if added
+      p Username: 
+        strong #{username} 
+      p Description: 
+        strong #{description}
+      p Date:
+        strong #{date}
+    if loguser
+      strong #{_id}
+      p Username: 
+        strong #{username} 
+      p Log length:
+        strong  #{count}
+      ul 
+        for item in log 
+          p Log nr: #{item.number} 
+            | Description:  #{item.description} 
+            | Duration: #{item.duration }
+            | When (date): #{item.date }
+
+          br
+
+
+
     button(onclick='goBack()') Go Back
     script.
       function goBack() {
       window.history.back();
       }
-     
+       

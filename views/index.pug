@@ -18,18 +18,11 @@ html
         input#dat(type='text', name='date', placeholder='date (yyyy-mm-dd)')
         input(type='submit', value='Submit')
       p
-        strong GET users's exercise log: 
-        code GET /api/exercise/log?{userId}[&from][&to][&limit]
-      p
-        strong { }
-        |  = required, 
-        strong [ ]
-        |  = optional
-      p
-        strong from, to
-        |  = dates (yyyy-mm-dd); 
-        strong limit
-        |  = number
+      form(action='/api/exercise/log?userId', method='get')
+        h3 GET users's exercise log: 
+        input#uid(type='text', name='userId', placeholder='Id')
+        input(type='submit', value='Submit')
+      
     button(onclick='goBack()') Go Back
     script.
       function goBack() {
